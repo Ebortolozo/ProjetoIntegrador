@@ -4,9 +4,10 @@ const {
 
 const db = require("../db/conn");
 
+// Atributos: Nome, DataNascimento, E-mail, Telefone, CEP, Usuario e senha
 //Tabela pessoa como id como chave principal
 
-const Pessoa = db.define('Pessoa',{
+const Cliente = db.define('Cliente',{
     nome: {
         type: DataTypes.STRING(200),
         allowNull: false
@@ -23,11 +24,16 @@ const Pessoa = db.define('Pessoa',{
         type: DataTypes.STRING(200),
         allowNull: false
     },
-    tipoPessoa: {
-        type: DataTypes.BOOLEAN,
+    usuario: {
+        type: DataTypes.STRING(200),
         allowNull: false
-    }
+    },
+    senha: {
+        type: DataTypes.STRING(200),
+        allowNull: false
+    },
+
 })
 
 
-module.exports = Pessoa
+module.exports = Cliente

@@ -8,11 +8,21 @@ const app = express()
 
 const conn = require("./db/conn")
 
-// Models
+// Models, aqui ele chama as funçoes de criar as tables
 
+const Evento = require('./models/Evento')
+const Planos = require('./models/Planos')
 const Empresa = require("./models/Empresa")
-const Pessoa = require('./models/Pessoa')
-const User = require("./models/User")
+const Cliente = require('./models/Cliente')
+const Esportes = require('./models/Esportes')
+
+// Import Routes
+const AuthRoutes = require("./routes/AuthRoutes")
+
+
+// Import Controllers (Unico)
+const AuthController = require('./controllers/AuthController')
+
 
 // template engine
 app.engine('handlebars', exphbs.engine())
@@ -62,10 +72,13 @@ app.use((req, res, next) => {
     next()
 })
 
+//routes
+app.use('/', AuthRoutes)
 
-
+app.get('/', AuthController.login)
 conn
-    .sync({force: true})
+    //.sync({force: true})
+    .sync()
     .then(() => {
         app.listen(3000)
     })
