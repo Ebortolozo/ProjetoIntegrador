@@ -16,6 +16,10 @@ const Cliente = db.define('Cliente',{
         type: DataTypes.STRING(200),
         allowNull: false
     },
+    dataNasc: {
+        type: DataTypes.STRING(200),
+        allowNull: false
+    },
     telefone: {
         type: DataTypes.STRING(20),
         allowNull: false
@@ -37,3 +41,5 @@ const Cliente = db.define('Cliente',{
 
 
 module.exports = Cliente
+
+db

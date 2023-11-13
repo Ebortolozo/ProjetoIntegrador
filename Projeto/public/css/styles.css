@@ -1,3 +1,7 @@
+:root {
+    --corPrincipal: #f692df;
+}
+
 * {
     font-family: Helvetica;
     margin: 0;
@@ -5,6 +9,18 @@
     background-color: #222;
     color: #fff;
 }
+
+/* OTIMIZAÇÃO */
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
 
 /* NAVBAR */
 
@@ -19,7 +35,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #222;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--corPrincipal);
 }
 
 #navbar ul {
@@ -39,11 +55,98 @@
 }
 
 #navbar ul li a:hover {
-    color: #fff;
+    color: var(--corPrincipal);
 }
 
 /* CONTAINER */
 
+.container {
+    min-height: 60vh;
+    padding: 2em;
+}
 
+
+/* MESSAGES */
+
+.message {
+    padding: 1em;
+    color: #004085;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 auto 2em;
+    max-width: 60%;
+}
+/* LOGIN E REGISTER */
+.auth-container {
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container h2 {
+    margin-bottom: 1em;
+    color: #FFF;
+    border-left: 4px solid var(--corPrincipal);
+    padding: .3em;
+    width: 100px;
+}
+
+.auth-container a {
+    color: var(--corPrincipal);
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.form-control label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.form-control input,
+.form-control textarea {
+    padding: 7px;
+    border-radius: 3px;
+    border:1px solid var(--corPrincipal) ;
+}
+
+form input[type = 'submit'],
+.btn {
+  background-color: transparent;
+  color: var(--corPrincipal);  
+  border: 2px solid var(--corPrincipal);
+  padding: .5em 1.2em;
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+form input[type = 'submit']:hover,
+.btn:hover {
+    background-color: var(--corPrincipal);
+    color: #FFF;
+}
 
 /* FOOTER */
+
+footer {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--corPrincipal);
+}
+
+footer span {
+    font-weight: bold;
+    color: var(--corPrincipal);
+}
