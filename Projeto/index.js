@@ -18,6 +18,7 @@ const Esportes = require('./models/Esportes')
 
 // Import Routes
 const AuthRoutes = require("./routes/AuthRoutes")
+const SiteRoutes = require("./routes/SiteRoutes")
 
 
 // Import Controllers (Unico)
@@ -74,7 +75,9 @@ app.use((req, res, next) => {
 
 //routes
 app.use('/', AuthRoutes)
+app.use('/home', SiteRoutes)
 
+//Conexão
 app.get('/', AuthController.login)
 conn
     //.sync({force: true})

@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const AuthController = require("../controllers/AuthController")
 
-//controlador
+//Rotas de login e registro
 
 router.get('/', AuthController.login)
 router.get('/login', AuthController.login)
