@@ -9,11 +9,12 @@
 </head>
 <body>
     <nav id="navbar">
-        <a href="/" id="logo">
+        <a href="/home" id="logo">
             <img src="img/Logo.jpg" alt="Logo da empresa">
         </a>
         <ul>
             {{#if session.userid}}
+                <li><a href="/evento">Eventos</a></li>
                 <li><a href="/logout">Sair</a></li>
             {{else}}
                 <li><a href="/login">Entrar</a></li>
