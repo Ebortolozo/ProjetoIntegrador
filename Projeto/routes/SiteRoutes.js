@@ -6,6 +6,7 @@ const SiteController = require("../controllers/SiteController")
 const checkAuth = require('../helpers/auth').checkAuth
 
 //Rotas para o restante do site
-router.get('/', checkAuth, SiteController.homepage)
+router.get('/home', checkAuth, SiteController.homepage)
+router.get('/evento', checkAuth, SiteController.evento)
 
 module.exports = router

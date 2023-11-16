@@ -11,7 +11,6 @@ const conn = require("./db/conn")
 // Models, aqui ele chama as funçoes de criar as tables
 
 const Evento = require('./models/Evento')
-const Planos = require('./models/Planos')
 const Empresa = require("./models/Empresa")
 const Cliente = require('./models/Cliente')
 const Esportes = require('./models/Esportes')
@@ -24,10 +23,17 @@ const SiteRoutes = require("./routes/SiteRoutes")
 // Import Controllers (Unico)
 const AuthController = require('./controllers/AuthController')
 
+// Import dos Injections
+const injection = require("./helpers/injection")
 
-// template engine
-app.engine('handlebars', exphbs.engine())
-app.set('view engine', 'handlebars')
+
+
+
+// Configuração do Handlebars
+app.engine('handlebars', exphbs.engine({
+    allowProtoMethodsByDefault: true
+  }));
+app.set('view engine', 'handlebars');
 
 //receber resposta do body
 app.use(
@@ -75,12 +81,16 @@ app.use((req, res, next) => {
 
 //routes
 app.use('/', AuthRoutes)
-app.use('/home', SiteRoutes)
+app.use('/', SiteRoutes)
+
+// Injeções de fato
+// injection.inserirEsportes()
+// injection.inserirEmpresas()
 
 //Conexão
 app.get('/', AuthController.login)
 conn
-    //.sync({force: true})
+    // .sync({force: true})
     .sync()
     .then(() => {
         app.listen(3000)

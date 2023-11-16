@@ -1,0 +1,36 @@
+<!-- criarPelada.handlebars -->
+
+<div class="auth-container">
+  <h2>Cadastrar Evento</h2>
+  <form action="/processar-formulario" method="post" class="pelada-form">
+    <div class="form-control">
+      <label for="nome" class="form-label">Nome da Pelada:</label>
+      <input type="text" id="nome" name="nome" required> 
+    </div>
+    <div class="form-control">
+      <label for="horario" class="form-label">Horário:</label>
+      <input type="time" id="horario" name="horario" required> 
+    </div>
+    <div class="form-control">
+      <label for="data" class="form-label">Data:</label>
+      <input type="date" id="data" name="data" required>
+    </div>
+    <div class="form-control">
+      <label for="quantidadePessoas" class="form-label">Quantidade de Pessoas:</label>
+    <input type="number" id="quantidadePessoas" name="quantidadePessoas" required>
+    </div>
+    <div class="form-control">
+      <label for="preco" class="form-label">Preço (opcional):</label>
+      <input type="text" id="preco" name="preco">
+    </div>
+    <div class="form-control">
+      <label for="esporte" class="form-label">Escolha seu esporte:</label>
+      <select id="esporte" name="esporte" class="form-select">
+      {{#each esportes}}
+        <option value="{{this}}" class="form-option">{{this}}</option>
+      {{/each}}
+      </select>
+    </div>
+    <input type="submit" class="form-button" value="Cadastrar"></input>
+  </form>
+</div>

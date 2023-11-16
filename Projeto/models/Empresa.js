@@ -4,12 +4,13 @@ const {
 
 const db = require("../db/conn");
 
-const Planos = require("../models/Planos")
+
+const Esporte = require("../models/Esportes")
 
 //Quem irá cadastrar as emprasa será nós mesmo por isso não vai ter interferencia de usuarios burros...
 //Atributos : NomeEmpresa, Esporte(FK), Horarios, Telefone, Localização, Descrição, Planos(FK)
 
-const Empresa = db.define('Empresa',{
+const Empresa = db.define('Empresa', {
     nomeEmpresa: {
         type: DataTypes.STRING(200),
         allowNull: false
@@ -26,19 +27,19 @@ const Empresa = db.define('Empresa',{
         type: DataTypes.STRING(20),
         allowNull: false,
     },
+    preco: {
+        type: DataTypes.STRING(100),
+        allowNull: false,
+    },
     descricao: {
-        type: DataTypes.STRING(300),
+        type: DataTypes.STRING(500),
         allowNull: false,
     }
-})
+});
 
-//Associações
+// Associações
+Empresa.belongsTo(Esporte, { foreignKey: "id" }); 
+Esporte.hasMany(Empresa); 
 
-Empresa.hasMany(Planos, {
-    foreignKey: "id"
-})
-Planos.belongsTo(Empresa)
 
-//export
-
-module.exports = Empresa
+module.exports = Empresa;
