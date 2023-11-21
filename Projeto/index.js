@@ -84,7 +84,7 @@ app.use('/', AuthRoutes)
 app.use('/', SiteRoutes)
 
 // Injeções de fato
-// injection.inserirEsportes()
+// injection.inserirEsportes()  OBS: Rodar primeiro o inserirEsportes() depois o inserirEmpresas()
 // injection.inserirEmpresas()
 
 //Conexão

@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Integrador</title>
-    <link rel="shortcut icon" href="img/Logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>SportFinder</title> {{! Nome que aparece na Aba}}
+    <link rel="shortcut icon" href="img/Logo.ico" type="image/x-icon"> {{! Icone que aparece do lado do nome do site}}
+    <link rel="stylesheet" href="css/styles.css"> {{! Importação do CSS}}
 </head>
 <body>
-    <nav id="navbar">
+    <nav id="navbar"> {{! Div do NavBar}}
         <a href="/home" id="logo">
-            <img src="img/Logo.jpg" alt="Logo da empresa">
+            <img src="img/SportFinder.png" alt="Logo da empresa"> {{! Imagem de logo em todas as paginas do Site}}
         </a>
         <ul>
-            {{#if session.userid}}
+            {{#if session.userid}} {{! Se estiver Logado}}
                 <li><a href="/evento">Eventos</a></li>
                 <li><a href="/logout">Sair</a></li>
-            {{else}}
+            {{else}} {{! Caso não esteja Logado}}
                 <li><a href="/login">Entrar</a></li>
                 <li><a href="/register">Registrar</a></li>
             {{/if}}
         </ul>
     </nav>
-    <div class="container">
+    <div class="container">  {{!-- Container que engloba todo o body --}}
         {{#if messages.message}}
             <div class="message">
-                {{messages.message}}
+                {{messages.message}} {{! As mensagens que aparecem por exemplo quando erra a senha}}
             </div>
         {{/if}}
-        {{{ body }}}
+        {{{ body }}} {{! Os outros .handlebars entram aqui!!!!!!!!}}
     </div>
     <footer>
-        <p><span>Projetinho</span> &copy; 2023</p>
+        <p><span>SportFinder</span> &copy; 2023</p> {{! Texto do footer}}
     </footer>
 </body>
 </html>

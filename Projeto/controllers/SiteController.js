@@ -1,6 +1,19 @@
+const Empresa = require("../models/Empresa")
+const Esportes = require("../models/Esportes")
+
 module.exports = class SiteController {
-    static homepage(req, res) {
-        return res.render('Site/homepage')
+    static async homepage(req, res) {
+        const empresa = await Empresa.findAll({
+            // include: Esportes,
+            // plain: true
+        })
+
+        const empre = empresa.map((results) => results.dataValues)
+        // console.log(typeof empre)
+
+
+
+        return res.render('Site/homepage', {empre})
     }
     
     static evento(req, res) {

@@ -1,1 +1,10 @@
 <h1>Homepage</h1>
+<div class="carrosel">
+    <ul class="Empresas">
+        {{#each empre}}
+            <li>{{this.nomeEmpresa}}</li>
+            <li>{{this.localizacao}}</li>
+            <li>{{this.descricao}}</li>
+        {{/each}}
+    </ul>
+</div>

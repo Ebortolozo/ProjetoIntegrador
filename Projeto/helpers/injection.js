@@ -40,7 +40,7 @@ module.exports = class InserirCoisas {
                 telefone: telefone,
                 descricao: descricao,
                 preco: preco,
-                esporteId : esporteId
+                EsporteId : esporteId
             });
         }
         
