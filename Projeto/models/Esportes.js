@@ -10,6 +10,10 @@ const Esportes = db.define('Esportes',{
     nomeEsporte: {
         type: DataTypes.STRING(200),
         allowNull: false
+    },
+    imagemEsporte: {
+        type: DataTypes.STRING(3000),
+        allowNull: true
     }
 })
 

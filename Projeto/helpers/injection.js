@@ -17,11 +17,16 @@ module.exports = class InserirCoisas {
                 "Biatlo", "Pentatlo Moderno", "Squash", "Lacrosse", "Tiro Esportivo",
                 "Bandy", "Luge", "Curling", "Sincronizada"
             ];
+            const imagemEsporte = [
+                "img/Futebol.jpg", "img/Basquete.jpg", "img/Criquete.jpg", "img/Tenis.jpg", "img/FutebolAmericano.jpg", "", "img/Rugby.jpg",
+                "img/Golfe.jpg", "", "img/Natacao.jpg", "img/Ciclismo.jpg", "img/Hoquei.jpg"
+            ]
 
             // Inserir esportes com base na lista
-            for (const esporte of esportesMaisJogados) {
+            for (var esporte in esportesMaisJogados) {
                 await Esporte.create({
-                    nomeEsporte: esporte
+                    nomeEsporte: esportesMaisJogados[esporte],
+                    imagemEsporte: imagemEsporte[esporte]
                 });
             }
 

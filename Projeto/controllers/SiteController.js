@@ -9,11 +9,50 @@ module.exports = class SiteController {
         })
 
         const empre = empresa.map((results) => results.dataValues)
-        // console.log(typeof empre)
+        
+        // console.log(empre)
+
+        const ArrayEmpresa = []
+
+        class empresaHomepage {
+            constructor(id, nomeEmpresa, nomeEsporte, imagemEsporte) {
+                this.id = id,
+                this.nomeEmpresa = nomeEmpresa,
+                this.nomeEsporte = nomeEsporte,
+                this.imagemEsporte = imagemEsporte
+            }
+        }
 
 
 
-        return res.render('Site/homepage', {empre})
+        //Puta merda de codigo deu certo kkkkkkkkkkkkkkkkkkk
+        for(var chave in empre) {
+            var idEmpresa = empre[chave].id
+            var nomeEmpresa = empre[chave].nomeEmpresa
+            var idEsporte = empre[chave].EsporteId
+            var Esporte = await Esportes.findOne({
+                where: {id: idEsporte}
+            })
+            var nomeEsporte = Esporte.nomeEsporte
+            var imagemEsporte = Esporte.imagemEsporte
+            console.log(empre[chave])
+
+            let empresaArray = new empresaHomepage(idEmpresa, nomeEmpresa, nomeEsporte, imagemEsporte)
+
+            console.log(empresaArray)
+            
+
+            ArrayEmpresa.push(empresaArray)
+            
+        }
+
+        // Testar o que está sendo mandado para o front
+        // console.log(ArrayEmpresa) 
+        
+
+
+
+        return res.render('Site/homepage', {ArrayEmpresa})
     }
     
     static evento(req, res) {

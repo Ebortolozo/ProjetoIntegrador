@@ -1,10 +1,44 @@
-<h1>Homepage</h1>
-<div class="carrosel">
-    <ul class="Empresas">
-        {{#each empre}}
-            <li>{{this.nomeEmpresa}}</li>
-            <li>{{this.localizacao}}</li>
-            <li>{{this.descricao}}</li>
-        {{/each}}
-    </ul>
+<div class="titulo-empresas-parceiras">Empresas Parceiras</div>
+<div class="carousel">
+    <div class="carousel-container">
+        <div class="carousel-elements" id="carousel-container">
+            {{#each ArrayEmpresa}}
+                <div class="company-box" style="background-image: url({{this.imagemEsporte}});">
+                    <div class="overlay">
+                        <span class="company-name">{{this.nomeEmpresa}}</span>
+                        <span class="sport-name">{{this.nomeEsporte}}</span>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <button class="prev-btn">&lt;</button>
+    <button class="next-btn">&gt;</button>
 </div>
+
+<script>
+    const carouselContainer = document.getElementById('carousel-container');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let currentIndex = 0; // Inicia no primeiro item real
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : carouselContainer.children.length - 1;
+        updateCarouselTransform();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = currentIndex < carouselContainer.children.length - 1 ? currentIndex + 1 : 0;
+        updateCarouselTransform();
+    });
+
+    // Adiciona a transição inicial ao carregamento da página
+    carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+
+    function updateCarouselTransform() {
+        const itemWidth = carouselContainer.children[0].offsetWidth + 20; // Largura da caixa + margem
+        const transformValue = -currentIndex * itemWidth + 'px';
+        carouselContainer.style.transform = 'translateX(' + transformValue + ')';
+    }
+</script>
