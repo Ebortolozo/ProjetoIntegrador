@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const flash = require('express-flash')
+const path = require('path');
 
 const app = express()
 
@@ -30,10 +31,9 @@ const injection = require("./helpers/injection")
 
 
 // Configuração do Handlebars
-app.engine('handlebars', exphbs.engine({
-    allowProtoMethodsByDefault: true
-  }));
+app.engine('handlebars', exphbs.engine({ defaultLayout: "main"}));
 app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
 
 //receber resposta do body
 app.use(
@@ -80,15 +80,16 @@ app.use((req, res, next) => {
 })
 
 //routes
-app.use('/', AuthRoutes)
-app.use('/', SiteRoutes)
+app.use("/", SiteRoutes)
+app.use("/", AuthRoutes)
+
 
 // Injeções de fato
 // injection.inserirEsportes()  //OBS: Rodar primeiro o inserirEsportes() depois o inserirEmpresas()
 // injection.inserirEmpresas()
 
 //Conexão
-app.get('/', AuthController.login)
+app.get("/", AuthController.login)
 conn
     // .sync({force: true})
     .sync()

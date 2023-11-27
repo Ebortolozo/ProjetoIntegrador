@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SportFinder</title> {{! Nome que aparece na Aba}}
-    <link rel="shortcut icon" href="img/Logo.ico" type="image/x-icon"> {{! Icone que aparece do lado do nome do site}}
-    <link rel="stylesheet" href="css/styles.css"> {{! Importação do CSS}}
+    <link rel="shortcut icon" href="img/SportFinder.png" type="image/x-icon"> {{! Icone que aparece do lado do nome do site}}
+    <link rel="stylesheet" href="/css/styles.css"> {{! Importação do CSS}}
 </head>
 <body>
     <nav id="navbar"> {{! Div do NavBar}}
         <a href="/home" id="logo">
-            <img src="img/SportFinder.png" alt="Logo da empresa"> {{! Imagem de logo em todas as paginas do Site}}
+            <img src="/img/SportFinder.png" alt="Logo da empresa"> {{! Imagem de logo em todas as paginas do Site}}
         </a>
         <ul>
             {{#if session.userid}} {{! Se estiver Logado}}

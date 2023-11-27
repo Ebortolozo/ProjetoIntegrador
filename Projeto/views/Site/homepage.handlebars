@@ -3,18 +3,22 @@
     <div class="carousel-container">
         <div class="carousel-elements" id="carousel-container">
             {{#each ArrayEmpresa}}
-                <div class="company-box" style="background-image: url({{this.imagemEsporte}});">
-                    <div class="overlay">
-                        <span class="company-name">{{this.nomeEmpresa}}</span>
-                        <span class="sport-name">{{this.nomeEsporte}}</span>
+                <a href="/empresa/{{this.id}}" class="company-link">
+                    <div class="company-box" style="background-image: url({{this.imagemEsporte}});">
+                        <div class="overlay">
+                            <span class="company-name">{{this.nomeEmpresa}}</span>
+                            <span class="sport-name">{{this.nomeEsporte}}</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             {{/each}}
         </div>
     </div>
     <button class="prev-btn">&lt;</button>
     <button class="next-btn">&gt;</button>
 </div>
+
+
 
 <script>
     const carouselContainer = document.getElementById('carousel-container');

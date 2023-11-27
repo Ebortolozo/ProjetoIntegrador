@@ -35,11 +35,11 @@ module.exports = class SiteController {
             })
             var nomeEsporte = Esporte.nomeEsporte
             var imagemEsporte = Esporte.imagemEsporte
-            console.log(empre[chave])
+            // console.log(empre[chave])
 
             let empresaArray = new empresaHomepage(idEmpresa, nomeEmpresa, nomeEsporte, imagemEsporte)
 
-            console.log(empresaArray)
+            // console.log(empresaArray)
             
 
             ArrayEmpresa.push(empresaArray)
@@ -69,4 +69,33 @@ module.exports = class SiteController {
         "Bandy", "Luge", "Curling", "Sincronizada"]
         return res.render('Site/criarPelada', {esportes})
     }
+
+    static showEmpresa = async (req, res) => {
+        try {
+            const empresaId = req.params.id;
+    
+            // Use o método `findByPk` para buscar por chave primária
+            const empresa = await Empresa.findByPk(empresaId, {
+                raw: true
+            });
+    
+            if (!empresa) {
+                // Lida com o caso em que a empresa não é encontrada
+                return res.status(404).send('Empresa não encontrada');
+            }
+
+            const esporte = await Esportes.findByPk(empresa.EsporteId, {
+                raw: true
+            })
+            console.log(esporte)
+    
+            // console.log(empresa)
+            res.render('Site/empresa', {empresa, esporte});
+        } catch (error) {
+            // Lida com erros durante a consulta ou renderização
+            console.error('Erro ao buscar empresa:', error);
+            res.status(500).send('Erro interno do servidor');
+        }
+    };
+    
 }

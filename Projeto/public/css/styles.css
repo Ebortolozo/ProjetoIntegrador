@@ -1,5 +1,5 @@
 :root {
-    --corPrincipal: #f692df;
+    --corPrincipal: #007BFF;
 }
 
 * {
@@ -147,10 +147,10 @@ footer span {
 /* Teste */
 .titulo-empresas-parceiras {
     text-align: center;
-    font-size: 2em;
-    font-family: 'Nome da Fonte', sans-serif;
+    font-size: 2.5em;
+    font-family: monospace, sans-serif;
     color: var(--corPrincipal);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* Carrossel */
@@ -233,16 +233,24 @@ footer span {
     border-radius: 10px; /* Manter as bordas arredondadas no texto */
 }
 
+.company-box {
+    cursor: pointer; /* Adicionando cursor indicativo de link */
+}
+
+.company-box:hover .overlay a {
+    color: var(--corPrincipal);
+}
+
 /* Botões de Navegação */
 .prev-btn,
 .next-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 24px;
+    font-size: 35px;
     background: none;
     border: none;
-    color: var(--corPrincipal);
+    color: palevioletred;
     cursor: pointer;
     z-index: 3;
     transition: transform 0.3s ease-in-out;
@@ -251,7 +259,9 @@ footer span {
 .prev-btn:hover,
 .next-btn:hover {
     color: #fff;
+    
 }
+
 
 .prev-btn {
     left: 10px;
@@ -259,4 +269,28 @@ footer span {
 
 .next-btn {
     right: 10px;
+}
+
+/* Teste2 */
+.info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+
+strong {
+    font-weight: bold;
+    font-size: 1.2em; /* Aumenta o tamanho do título */
+    margin-bottom: 10px; /* Adiciona espaçamento abaixo do título */
+}
+
+header {
+    color: #fff;
+    padding: 1em;
+    text-align: center;
 }

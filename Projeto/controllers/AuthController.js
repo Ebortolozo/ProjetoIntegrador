@@ -51,21 +51,21 @@ module.exports = class AuthController {
         //Verifica se a senha e a confirmação batem
         if (password != confirmpassword) {
             req.flash('message', 'As senhas não conferem, tente novamente!');
-            return res.render('auth/login');  
+            return res.render('auth/register');  
         }
 
         //Verificar se ja tem um email cadastrado, e manda um flash message(Caso True)
         const checkEmailExists = await Cliente.findOne({ where: { email: email } });
         if (checkEmailExists) {
             req.flash('message', 'O email já está em uso!');
-            return res.render('auth/login');  
+            return res.render('auth/register');  
         }
 
         // Verifica se ja tem um cliente com um login igual
         const checkLoginExists = await Cliente.findOne({ where: { usuario: login } });
         if (checkLoginExists) {
             req.flash('message', 'Login já está em uso!');
-            return res.render('auth/login');  
+            return res.render('auth/register');  
         }
 
         //Criptografia de Senha
