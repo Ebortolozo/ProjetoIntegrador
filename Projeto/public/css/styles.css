@@ -158,6 +158,7 @@ footer span {
     position: relative;
     width: 100%;
     overflow: hidden;
+    padding: 0 0 3em 0;
 }
 
 .carousel-container {
@@ -196,18 +197,17 @@ footer span {
 
 .overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 0; /* Posiciona a partir do fundo */
+    width: 92%; /* Ocupa toda a largura do pai */
     text-align: center;
     color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Adicione a sombra ao texto */
     transition: font-size 0.3s ease-in-out;
     z-index: 2;
     background: rgba(0, 0, 0, 0.0);
     padding: 10px;
     border-radius: 10px; /* Manter as bordas arredondadas no overlay */
 }
-
 .company-name {
     font-size: 18px;
     font-weight: bold;
@@ -215,6 +215,7 @@ footer span {
     background: rgba(0, 0, 0, 0.0);
     padding: 10px;
     border-radius: 10px; /* Manter as bordas arredondadas no texto */
+    text-transform: uppercase;
 }
 
 .sport-name {
@@ -250,7 +251,7 @@ footer span {
     font-size: 35px;
     background: none;
     border: none;
-    color: palevioletred;
+    color: var(--corPrincipal);
     cursor: pointer;
     z-index: 3;
     transition: transform 0.3s ease-in-out;

@@ -1,0 +1,35 @@
+<div class="esportezao" style="background-image: url(/{{esporte.imagemEsporte}}); background-size: contain;">
+    
+    <header>
+        <h1>{{evento.nomeEvento}}</h1>
+    </header>
+    
+    <section class="info">
+        <div class="info-item">
+            <strong>Horario:</strong>
+            <p>{{evento.horario}}</p>
+        </div>
+        <div class="info-item">
+            <strong>Data:</strong>
+            <p>{{evento.dataEvento}}</p>
+        </div>
+        <div class="info-item">
+            <strong>Quantidade de Pessoas</strong>
+            <p>{{evento.quantPessoas}}</p>
+        </div>
+        <div class="info-item">
+            <strong>Preço:</strong>
+            <p>{{evento.preco}}</p>
+        </div>
+        <div class="info-item">
+            <strong>Esporte</strong>
+            <p>{{esporte.nomeEsporte}}</p>
+        </div>
+        <form action="/diminuir" method="post">
+            <input hidden value="{{evento.id}}" type="text" name="eventoId" placeholder="Digite seu login" required>
+            <input hidden value="{{esporte.id}}" type="text" name="esporteId" placeholder="Digite seu login" required>
+            <input type="submit" value="Se inscrever!">
+        </form>
+    </section>
+</div>
+

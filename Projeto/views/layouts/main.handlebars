@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SportFinder</title> {{! Nome que aparece na Aba}}
-    <link rel="shortcut icon" href="img/SportFinder.png" type="image/x-icon"> {{! Icone que aparece do lado do nome do site}}
+    <link rel="shortcut icon" href="/img/SportFinder.png" type="image/x-icon"> {{! Icone que aparece do lado do nome do site}}
     <link rel="stylesheet" href="/css/styles.css"> {{! Importação do CSS}}
 </head>
 <body>
@@ -14,6 +14,7 @@
         </a>
         <ul>
             {{#if session.userid}} {{! Se estiver Logado}}
+                <li><a href="/home">Homepage</a></li>
                 <li><a href="/evento">Eventos</a></li>
                 <li><a href="/logout">Sair</a></li>
             {{else}} {{! Caso não esteja Logado}}
@@ -34,4 +35,5 @@
         <p><span>SportFinder</span> &copy; 2023</p> {{! Texto do footer}}
     </footer>
 </body>
+<script src="/js/main.js"></script>
 </html>
